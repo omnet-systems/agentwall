@@ -1,0 +1,49 @@
+name: Integration request
+description: Request or improve an AgentWall agent or tool integration.
+title: "integration: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        AgentWall can govern only action boundaries exposed by an integration. Do not include private configuration, credentials, raw audit records, or private source.
+  - type: input
+    id: integration
+    attributes:
+      label: Agent, client, or tool
+      placeholder: Codex, Claude Code, or another tool
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Exact version
+      placeholder: 0.144.1
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: OS version and architecture
+      placeholder: macOS 26.5.1 arm64 or Ubuntu 24.04 amd64
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: Which action should be visible, asked, blocked, or audited?
+    validations:
+      required: true
+  - type: textarea
+    id: exposed_boundary
+    attributes:
+      label: Exposed integration boundary
+      description: If known, describe the supported hook, permission event, tool API, or MCP call that exposes the action.
+  - type: checkboxes
+    id: safety_confirmation
+    attributes:
+      label: Sensitive-data confirmation
+      options:
+        - label: I used redacted or synthetic examples and included no credentials, private configuration, private source, raw audit records, or personal data.
+          required: true

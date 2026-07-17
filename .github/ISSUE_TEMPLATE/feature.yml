@@ -1,0 +1,49 @@
+name: Feature request
+description: Propose a non-sensitive AgentWall product improvement.
+title: "feature: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the user problem and desired outcome. Do not include private source, credentials, audit records, or personal data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What is difficult or unsafe today, and who is affected?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the result rather than prescribing an internal implementation.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Product area
+      options:
+        - Protection and activation
+        - Requests and approvals
+        - Policies
+        - Activity and diagnostics
+        - Agent integration
+        - Install or update
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Current workaround
+      description: Optional. Explain how you handle this today.
+  - type: checkboxes
+    id: safety_confirmation
+    attributes:
+      label: Sensitive-data confirmation
+      options:
+        - label: I included no credentials, tokens, private source, raw audit records, or personal data.
+          required: true
