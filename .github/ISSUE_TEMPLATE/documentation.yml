@@ -1,0 +1,30 @@
+name: Documentation correction
+description: Report unclear, incorrect, or missing public AgentWall documentation.
+title: "docs: "
+labels: [documentation]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Page or release URL
+      placeholder: https://github.com/omnet-systems/agentwall/...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is unclear or incorrect?
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: Optional. Provide concise replacement wording or missing information.
+  - type: checkboxes
+    id: safety_confirmation
+    attributes:
+      label: Sensitive-data confirmation
+      options:
+        - label: I included no credentials, tokens, private source, raw audit records, or personal data.
+          required: true

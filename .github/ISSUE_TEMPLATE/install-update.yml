@@ -1,0 +1,68 @@
+name: Install or update problem
+description: Report a non-sensitive package, install, update, disable, or uninstall problem.
+title: "install: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste credentials, private source, raw diagnostics, audit records, or personal data. Use redacted command output only.
+  - type: input
+    id: version
+    attributes:
+      label: AgentWall version
+      placeholder: v0.4.0-beta.2
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: OS version and architecture
+      placeholder: macOS 26.5.1 arm64 or Ubuntu 24.04 amd64
+    validations:
+      required: true
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package or build
+      options:
+        - Apple Silicon DMG
+        - Ubuntu Debian package
+        - Local development build
+        - Other / unsupported
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Failure stage
+      options:
+        - Download or verification
+        - Install
+        - First launch or activation
+        - Repair
+        - Update or reinstall
+        - Disable
+        - Uninstall
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Include only minimal, redacted steps and output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_actual
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety_confirmation
+    attributes:
+      label: Sensitive-data confirmation
+      options:
+        - label: I used redacted or synthetic details and included no credentials, private source, raw audit records, or personal data.
+          required: true

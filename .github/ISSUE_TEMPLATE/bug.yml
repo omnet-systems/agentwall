@@ -24,6 +24,39 @@ body:
         - Other / unsupported
     validations:
       required: true
+  - type: input
+    id: os_version_architecture
+    attributes:
+      label: OS version and architecture
+      placeholder: macOS 26.5.1 arm64 or Ubuntu 24.04 amd64
+    validations:
+      required: true
+  - type: dropdown
+    id: install_method
+    attributes:
+      label: Install method
+      options:
+        - GitHub Release DMG
+        - GitHub Release Debian package
+        - Local development build
+        - Other / unsupported
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Protection and activation
+        - Requests and approvals
+        - Policies
+        - Activity and diagnostics
+        - Codex integration
+        - Claude Code integration
+        - Install, update, disable, or uninstall
+        - Other / unsupported
+    validations:
+      required: true
   - type: textarea
     id: reproduction
     attributes:
@@ -43,3 +76,10 @@ body:
       label: Actual behavior
     validations:
       required: true
+  - type: checkboxes
+    id: safety_confirmation
+    attributes:
+      label: Sensitive-data confirmation
+      options:
+        - label: I used redacted or synthetic details and included no credentials, tokens, private source, raw audit records, or personal data.
+          required: true
